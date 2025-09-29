@@ -81,12 +81,12 @@ const Header = ({ isLoggedIn = false, user }: HeaderProps) => {
             {isLoggedIn ? (
               <div className="flex items-center space-x-4">
                 {/* Notifications */}
-                <button className="relative p-2 text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/notifications" className="relative p-2 text-muted-foreground hover:text-primary transition-colors">
                   <Bell className="h-5 w-5" />
                   <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
                     3
                   </span>
-                </button>
+                </Link>
                 
                 {/* Cart */}
                 <Link to="/cart" className="relative p-2 text-muted-foreground hover:text-primary transition-colors">
@@ -182,10 +182,14 @@ const Header = ({ isLoggedIn = false, user }: HeaderProps) => {
                     <ShoppingCart className="h-5 w-5" />
                     <span>Cart (2)</span>
                   </Link>
-                  <button className="flex items-center space-x-3 py-2 text-left w-full">
+                  <Link 
+                    to="/notifications" 
+                    className="flex items-center space-x-3 py-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
                     <Bell className="h-5 w-5" />
                     <span>Notifications (3)</span>
-                  </button>
+                  </Link>
                 </div>
               ) : (
                 <div className="space-y-3 pt-4 border-t">
